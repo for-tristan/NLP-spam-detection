@@ -16,4 +16,8 @@
 venv/
 env/
 __pycache__/
+<<<<<<< HEAD
 .ipynb_checkpoints/
+=======
+.ipynb_checkpoints/
+>>>>>>> 0ffa30a10b76bf63a76d937a28db9fb7aa61ea08
