@@ -1,1 +1,19 @@
+# Datasets
+*.csv
+*.json
+*.txt
+*.xlsx
 
+# Trained ML/DL Models
+*.pkl
+*.h5
+*.pt
+*.pth
+*.keras
+*.sav
+
+# Python virtual environment & cache
+venv/
+env/
+__pycache__/
+.ipynb_checkpoints/
