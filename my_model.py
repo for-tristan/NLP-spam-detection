@@ -20,10 +20,7 @@ df.columns = ['label', 'text']
 # ==============================
 # 3. Preprocessing
 # ==============================
-# Convert labels to numbers
 df['label'] = df['label'].map({'ham': 0, 'spam': 1})
-
-# Remove missing values
 df.dropna(inplace=True)
 
 # ==============================
@@ -51,7 +48,7 @@ model = Pipeline([
 model.fit(X_train, y_train)
 
 # ==============================
-# 7. Prediction
+# 7. Prediction on Test Data
 # ==============================
 y_pred = model.predict(X_test)
 
@@ -63,14 +60,20 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
 
 # ==============================
-# 9. Test Custom Message
+# 9. Prediction Function
 # ==============================
 def predict_message(msg):
     prediction = model.predict([msg])[0]
     return "Spam" if prediction == 1 else "Ham"
 
 # ==============================
-# 10. Try Example
+# 10. User Input (NEW PART)
 # ==============================
-print("\nCustom Test:")
-print(predict_message("Congratulations! You've won a free ticket. Call now!"))
+msg = input("\n✉️ Enter your message: ")
+
+result = predict_message(msg)
+
+if result == "Spam":
+    print("🚨 This message is SPAM")
+else:
+    print("✅ This message is NOT spam")
